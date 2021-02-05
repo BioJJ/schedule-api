@@ -4,10 +4,10 @@ import biojj.schedule.model.entity.Contacts;
 import biojj.schedule.model.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -55,7 +55,7 @@ public class ContactController {
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void atualizar( @PathVariable Integer id,
-                           @RequestBody @Valid Contacts contactAtualizado ) {
+                           @RequestBody @Validated Contacts contactAtualizado ) {
         repository
                 .findById(id)
                 .map( contact -> {
