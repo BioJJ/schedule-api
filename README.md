@@ -23,28 +23,18 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 mvn spring-boot:run
 ```
 
-## Deploying the application to OpenShift
+Spring Boot Back-end
+Visão geral
+Estas são APIs que o Spring Boot App exportará:
 
-The easiest way to deploy the sample application to OpenShift is to use the [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html):
+BASEURL: localhost:8080/
 
-```shell
-oc new-app codecentric/springboot-maven3-centos~https://github.com/codecentric/springboot-sample-app
-```
-
-This will create:
-
-* An ImageStream called "springboot-maven3-centos"
-* An ImageStream called "springboot-sample-app"
-* A BuildConfig called "springboot-sample-app"
-* DeploymentConfig called "springboot-sample-app"
-* Service called "springboot-sample-app"
-
-If you want to access the app from outside your OpenShift installation, you have to expose the springboot-sample-app service:
-
-```shell
-oc expose springboot-sample-app --hostname=www.example.com
-```
+Methods	  | Urls	             | Actions
+----------|--------------------|---------
+POST	    |  /api/contacts	   |create new contacts
+GET	      |  /api/contacts	   |retrieve all contacts
+GET	      |  /api/contacts/:id |retrieve a contacts by :id
+PUT	      |  /api/contacts/:id |update a contacts by :id
+DELETE	  |  /api/contacts/:id |delete a contacts by :id
 
 ## Copyright
-
-Released under the Apache License 2.0. See the [LICENSE](https://github.com/codecentric/springboot-sample-app/blob/master/LICENSE) file.
