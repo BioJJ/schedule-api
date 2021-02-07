@@ -28,6 +28,8 @@ Visão geral
 Estas são APIs que o Spring Boot App exportará:
 
 BASEURL: localhost:8080/
+Database postgres: scheduledb
+
 
 Methods	  | Urls	             | Actions
 ----------|--------------------|---------
